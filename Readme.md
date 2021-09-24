@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Galina Vikhrova](https://up.htmlacademy.ru/javascript/24/user/828239).
-* Наставник: `Неизвестно`.
+* Наставник: [Екатерина Малецкая](https://htmlacademy.ru/profile/id902197).
 
 ---
 
