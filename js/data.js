@@ -16,6 +16,7 @@ const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0,
 
 const createAd = (quantity) => {
   const ads = [];
+  // eslint-disable-next-line id-length
   for (let i=0; i < quantity; i++) {
     const lat = getRandomPositiveFloat(35.65000, 35.70000, 5);
     const lng = getRandomPositiveFloat(139.70000, 139.80000, 5);
