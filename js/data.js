@@ -46,7 +46,7 @@ const createAd = (quantity) => {
   return ads;
 };
 
-const getType = function (type) {
+const getType = (type) => {
   switch (type) {
     case 'flat':
       return 'Квартира';
@@ -63,4 +63,27 @@ const getType = function (type) {
   }
 };
 
-export {createAd, ADS_COUNT, getType};
+const getFeature = (featuresAll, featuresUser) => {
+  featuresAll.forEach((featuresItem) => {
+    const isNecessary = featuresUser.some(
+      (cardFeature) => featuresItem.classList.contains(`popup__feature--${  cardFeature}`),
+    );
+    if (!isNecessary) {
+      featuresItem.remove();
+    }
+  });
+};
+
+const getPhoto = (photosAll, photosUser) => {
+  if (photosUser.length) {
+    photosAll.innerHTML = '';
+    for (let i = 0; i < photosUser.length; i++) {
+      const photoImg = `<img class="popup__photo" width="45" height="40" alt="Фотография жилья" src=${photosUser[i]}>`;
+      photosAll.insertAdjacentHTML('afterbegin', photoImg);
+    }
+  } else {
+    photosAll.style.display = 'none';
+  }
+};
+
+export {createAd, ADS_COUNT, getType, getFeature, getPhoto};
