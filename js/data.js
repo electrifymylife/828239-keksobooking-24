@@ -63,7 +63,7 @@ const getType = (type) => {
   }
 };
 
-const getFeature = (featuresAll, featuresUser) => {
+const addFeature = (featuresAll, featuresUser) => {
   featuresAll.forEach((featuresItem) => {
     const isNecessary = featuresUser.some(
       (cardFeature) => featuresItem.classList.contains(`popup__feature--${  cardFeature}`),
@@ -74,7 +74,7 @@ const getFeature = (featuresAll, featuresUser) => {
   });
 };
 
-const getPhoto = (photosAll, photosUser) => {
+const addPhoto = (photosAll, photosUser) => {
   if (photosUser.length) {
     photosAll.innerHTML = '';
     for (let i = 0; i < photosUser.length; i++) {
@@ -86,4 +86,4 @@ const getPhoto = (photosAll, photosUser) => {
   }
 };
 
-export {createAd, ADS_COUNT, getType, getFeature, getPhoto};
+export {createAd, ADS_COUNT, getType, addFeature, addPhoto};

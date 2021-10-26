@@ -1,10 +1,9 @@
-import {getType, getFeature, getPhoto} from './data.js';
-
-const mapCanvas = document.querySelector('#map-canvas');
-const similarCardTemplate = document.querySelector('#card').content.querySelector('.popup');
-const similarCardFragment = document.createDocumentFragment();
+import {getType, addFeature, addPhoto} from './data.js';
 
 const createCards = (cards) => {
+  const mapCanvas = document.querySelector('#map-canvas');
+  const similarCardTemplate = document.querySelector('#card').content.querySelector('.popup');
+  const similarCardFragment = document.createDocumentFragment();
   cards.forEach(({author, offer}) => {
     const cardElement = similarCardTemplate.cloneNode(true);
     cardElement.querySelector('.popup__title').textContent = offer.title;
@@ -17,10 +16,10 @@ const createCards = (cards) => {
     cardElement.querySelector('.popup__avatar').src = author.avatar;
     /* features */
     const featuresList = cardElement.querySelectorAll('.popup__feature');
-    getFeature(featuresList, offer.features);
+    addFeature(featuresList, offer.features);
     /* photos */
     const photosList = cardElement.querySelector('.popup__photos');
-    getPhoto(photosList, offer.photos);
+    addPhoto(photosList, offer.photos);
     similarCardFragment.appendChild(cardElement);
   });
   mapCanvas.appendChild(similarCardFragment);
